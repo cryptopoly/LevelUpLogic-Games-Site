@@ -53,7 +53,7 @@ h1, h2, h3 { margin: 0; font-family: var(--display); font-weight: 400; font-styl
 .on-dark .btn, .btn.on-dark { border-color: var(--paper); box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.6); }
 
 /* hero */
-.hero { position: relative; background: var(--red); color: var(--ink); padding: 84px 0 96px; overflow: hidden; border-bottom: 4px solid var(--ink); }
+.hero { position: relative; background: #e8503f; color: var(--ink); padding: 84px 0 96px; overflow: hidden; border-bottom: 4px solid var(--ink); }
 .hero::before {
   content: ""; position: absolute; inset: 0; pointer-events: none; opacity: 0.2;
   background-image: radial-gradient(var(--ink) 22%, transparent 23%);
@@ -87,7 +87,7 @@ h1, h2, h3 { margin: 0; font-family: var(--display); font-weight: 400; font-styl
 .game-art.phone img { object-fit: contain; padding: 22px 0; }
 .game-body { padding: 36px; display: flex; flex-direction: column; gap: 16px; justify-content: center; }
 .status { align-self: flex-start; font-weight: 800; font-size: 12.5px; letter-spacing: 0.1em; text-transform: uppercase; padding: 6px 11px; background: var(--yellow); color: var(--ink); transform: rotate(-1.5deg); }
-.status.red { background: var(--red); color: #fff; }
+.status.red { background: #c92f21; color: #fff; }
 .game h3 { font-size: clamp(2rem, 4.4vw, 3.1rem); }
 .game .tagline { font-weight: 700; color: var(--yellow); font-size: 1.1rem; }
 .game p { color: var(--muted); }
@@ -114,7 +114,7 @@ footer { padding: 40px 0 48px; font-size: 14.5px; color: var(--muted); }
 footer .wrap { display: grid; grid-template-columns: 1.4fr 1fr; gap: 32px; }
 footer address { font-style: normal; margin-top: 10px; line-height: 1.7; }
 footer nav { display: flex; flex-wrap: wrap; gap: 6px 22px; justify-content: flex-end; align-content: start; }
-footer a { text-decoration: none; padding: 6px 0; }
+footer a { text-decoration: none; padding: 6px 0; display: inline-block; min-width: 24px; }
 footer a:hover { color: var(--yellow); text-decoration: underline; }
 
 /* legal */
@@ -134,12 +134,16 @@ footer a:hover { color: var(--yellow); text-decoration: underline; }
   .game-art, .game:nth-of-type(even) .game-art { order: 0; min-height: 0; aspect-ratio: 16 / 9; border: 0; border-bottom: 3px solid var(--paper); }
   .game-art.phone { aspect-ratio: 4 / 3; }
   .game-body { padding: 26px; }
+  .game > * { min-width: 0; }
   .studio .wrap { grid-template-columns: 1fr; }
   footer .wrap { grid-template-columns: 1fr; }
   footer nav { justify-content: flex-start; }
 }
 @media (max-width: 640px) {
   .nav-links a:not(.keep) { display: none; }
+  .brand { font-size: 1.05rem; gap: 8px; }
+  .brand svg { width: 26px; height: 26px; }
+  .nav-links a { font-size: 12.5px; padding: 12px 4px; letter-spacing: 0.03em; }
   .hero { padding: 56px 0 68px; }
   .hero h1 { -webkit-text-stroke: 1.5px var(--ink); text-shadow: 3px 3px 0 var(--ink); }
   .games { padding-top: 64px; }
@@ -148,4 +152,9 @@ footer a:hover { color: var(--yellow); text-decoration: underline; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   * { transition: none !important; }
+}
+
+@media (max-width: 360px) {
+  .brand span { display: none; }
+  .game-body { padding: 20px; }
 }
